@@ -22,13 +22,21 @@ namespace KatalogOkienkowy
 
             List<Produkt> produkty = new List<Produkt>
             {
-                new Produkt("Procesor intel core i9", 1500.00, "Procesory",10),
-                new Produkt("Karta graficzna NVIDIA geforce rtx 3080", 4000.00, "Karty graficzne",5),
-                new Produkt("Płyta glowna asus ROG strix Z590-e", 1200.00, "Płyty głowne",8),
-                new Produkt("Dysk SSD Samsung 970 EVO plus 1TB", 600.00, "Dyski SSD",15),
+                new Produkt("Procesor Intel Core i9", 1500.00, "Procesory", 10),
+                new Produkt("Karta graficzna NVIDIA GeForce RTX 3080", 4000.00, "Karty graficzne", 5),
+                new Produkt("Płyta główna ASUS ROG Strix Z590-E", 1200.00, "Płyty główne", 8),
+                new Produkt("Pamięć RAM Corsair Vengeance LPX 16GB", 400.00, "Pamięci RAM", 20),
+                new Produkt("Dysk SSD Samsung 970 EVO Plus 1TB", 600.00, "Dyski SSD", 15)
             };
 
-            EtykietaLiczby.Text = $"Liczba produktow: {produkty.Count}";
+            EtykietaLiczby.Text = $"Liczba produktów: {produkty.Count}";
+            EtykietaWartoscMagazynu.Text = $"Wartość magazynu: {Produkt.ObliczWartoscMagazynu(produkty):f2} zł";
+
+            TextBlock dopisek = new TextBlock();
+            dopisek.Text = "To zostalo dodane bezposrednio w kodzie C#";
+            dopisek.FontSize = 14;
+
+            GlownyStackPanel.Children.Add(dopisek);
         }
     }
 }
