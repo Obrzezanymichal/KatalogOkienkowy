@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using KatalogOkienkowy;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,6 +21,7 @@ namespace KatalogOkienkowy
         {
             InitializeComponent();
 
+            //stwórz listę kilku produktów - części komputerowych
             List<Produkt> produkty = new List<Produkt>
             {
                 new Produkt("Procesor Intel Core i9", 1500.00, "Procesory", 10),
@@ -29,14 +31,14 @@ namespace KatalogOkienkowy
                 new Produkt("Dysk SSD Samsung 970 EVO Plus 1TB", 600.00, "Dyski SSD", 15)
             };
 
-            EtykietaLiczby.Text = $"Liczba produktów: {produkty.Count}";
-            EtykietaWartoscMagazynu.Text = $"Wartość magazynu: {Produkt.ObliczWartoscMagazynu(produkty):f2} zł";
+            EtykietaLiczbaProduktow.Text = produkty.Count.ToString();
+            EtykietaWartoscMagazynu.Text = $"{Produkt.ObliczWartoscMagazynu(produkty):f2} zł";
 
-            TextBlock dopisek = new TextBlock();
-            dopisek.Text = "To zostalo dodane bezposrednio w kodzie C#";
-            dopisek.FontSize = 14;
-
-            GlownyStackPanel.Children.Add(dopisek);
+            //TextBlock dopisek = new TextBlock();
+            //dopisek.Text = "To zostało dodane bezpośrednio w kodzie C#";
+            //dopisek.FontSize = 14;
+            //stackpanel musi miec x:Name żeby to zadziałało
+            //GlownyStackPanel.Children.Add(dopisek);
         }
     }
 }
